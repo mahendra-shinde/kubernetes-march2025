@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs01
+  namespace: mahendra
+spec:
+  replicas: 3
+  # Identify the pods managed by this replica set
+  selector:
+    matchLabels:
+      app: myweb
+  template:
+  # This is pod-template
+  # This template should be used by scheduler to create pods
+    metadata:
+      labels:
+        app: myweb
+    spec:
+      containers:
+      - name: c1
+        image: mahendrshinde/myweb:1
+        ports:
+        - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod01
+  namespace: mahendra
+spec:
+  containers:
+  - name: c1
+    image: mahendrshinde/myweb:1
+    # QoS - Quality of Service - Resource Requests and Limits'
+    # Burstable 
+    resources:
+      limits:
+        memory: "32Mi"
+        cpu: "150m"
+      requests: # All metrics are calculated on "Requests"
+        memory: "16Mi"
+        cpu: "50m"
+    # if Container uses 8MB of RAM, it would shown as 50% usage
+    # if Container uses 16MB of RAM, it would shown as 100% usage
+    # if Container uses 32MB of RAM, it would shown as 200% usage
+    ports:
+    - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1
+  namespace: mahendra
+spec:
+  selector:  # Label Selector
+    app: app1 # Selects all Pods with label 'app: app1'
+  ports:
+  - protocol: TCP
+    port: 80        # Port on which Service is listening
+    targetPort: 80  # Port on which Pod is listening
+  type: LoadBalancer  # Type of Service - ClusterIP, NodePort, LoadBalancer

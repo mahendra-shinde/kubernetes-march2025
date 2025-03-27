@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+  namespace: mahendra
+spec:
+  resources:
+    requests:
+      storage: 5Gi  
+  volumeMode: Filesystem
+  storageClassName: azurefile
+  accessModes:
+    # ReadWriteOnce - Can be mounted by only one Pod (With Read and Write Access)
+    # ReadOnlyMany - Can be mounted by multiple Pods (With Read Only Access)
+    # ReadWriteMany - Can be mounted by multiple Pods (With Read and Write Access)
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+  namespace: mahendra
+spec:
+  volumes:
+  - name: myvol
+    persistentVolumeClaim:
+      claimName: mypvc
+  containers:
+  - name: c1
+    image: mahendrshinde/myweb:1
+    volumeMounts:
+    - name: myvol
+      mountPath: /var/log/nginx/

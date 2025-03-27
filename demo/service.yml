@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo1
+spec:
+  selector:
+    app: demo1
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080 # This is the port on which the application is running

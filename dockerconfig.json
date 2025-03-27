@@ -1,0 +1,10 @@
+{
+    "auths": {
+        "mahendrashinde.azurecr.io": {
+            "username": "mahendrashinde",
+            "password": "DGlUo/uisEbm8+w4bJBeOkGcvHD9/rGuBDcjozPgD1+ACRDphkSZ",
+            "auth": "DglUo/uisEbm8+w4bJBeOkGcvHD9/rGuBDcjozPgD1+ACRDphkSZ",
+            "server": "mahendrashinde.azurecr.io"
+        }
+    }
+}
